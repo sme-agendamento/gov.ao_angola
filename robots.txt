@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sme-agendamento.github.io/gov.ao_angola/sitemap.xml
