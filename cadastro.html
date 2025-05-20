@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - SME Angola</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #024b6b;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      background-color: #024b6b;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #036c9e;
+    }
+    .spinner {
+      display: none;
+      margin: 20px auto;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #024b6b;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Formulário de Cadastro</h2>
+    <form id="cadastroForm">
+      <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" required />
+      </div>
+      <div class="form-group">
+        <label for="bi">Nº do Bilhete de Identidade ou Passaporte</label>
+        <input type="text" id="bi" name="bi" required />
+      </div>
+      <div class="form-group">
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" required />
+      </div>
+      <div class="form-group">
+        <label for="nacionalidade">Nacionalidade</label>
+        <input type="text" id="nacionalidade" name="nacionalidade" required />
+      </div>
+      <div class="form-group">
+        <label for="residencia">Residência Actual</label>
+        <input type="text" id="residencia" name="residencia" required />
+      </div>
+      <div class="form-group">
+        <label for="telefone">Número de Telefone</label>
+        <input type="tel" id="telefone" name="telefone" required />
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <button type="submit">Confirmar</button>
+      <div class="spinner" id="spinner"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const spinner = document.getElementById("spinner");
+      spinner.style.display = "block";
+
+      setTimeout(() => {
+        spinner.style.display = "none";
+        window.location.href = "formulario.html";
+      }, 2000); // simula processamento de 2 segundos
+    });
+  </script>
+</body>
+</html>

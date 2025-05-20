@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pagamento</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #024b6b;
+    }
+    p, ul {
+      font-size: 15px;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input[type="file"] {
+      display: block;
+      margin-bottom: 15px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #024b6b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #036c9e;
+    }
+    .spinner {
+      display: none;
+      margin: 20px auto;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #024b6b;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Pagamento ao Estado</h2>
+  
+  <strong>Entidade:</strong> <span style="color:#024b6b">00525</span></p>
+  <p><strong>Referência:</strong> <span style="color:#024b6b">942714052</span></p>
+
+  <p><strong>Instruções de pagamento no ATM ou Aplicativo Multicaixa Express:</strong></p>
+  <ul>
+    <li>Pagamentos.</li>
+    <li>Pagamentos por referência.</li>
+    <li>Entidade 00525.</li>
+    <li>Referência 942714052.</li>
+    <li>Insira valor, confirma e aguarde o comprovativo</li>
+
+  <form id="formPagamento">
+    <label for="comprovativo">Anexar Comprovativo de Pagamento:</label>
+    <input type="file" id="comprovativo" name="comprovativo" accept=".jpg,.jpeg,.png,.pdf" required />
+
+    <button type="submit">Confirmar e Continuar</button>
+    <div class="spinner" id="spinner"></div>
+  </form>
+</div>
+
+<script>
+  document.getElementById("formPagamento").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("comprovativo");
+    if (!fileInput.files.length) {
+      alert("Por favor, anexe o comprovativo de pagamento.");
+      return;
+    }
+
+    const spinner = document.getElementById("spinner");
+    spinner.style.display = "block";
+
+    // Simulação de upload e redirecionamento
+    setTimeout(() => {
+      spinner.style.display = "none";
+      window.location.href = "comprovativo.html";
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>

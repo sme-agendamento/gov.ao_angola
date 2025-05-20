@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seleção de Taxas</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e3f2fd, #bbdefb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 95%;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 90px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #1a237e;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    .taxa {
+      text-align: left;
+      background: #e8f0fe;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.3s;
+    }
+
+    .taxa:hover {
+      border: 2px solid #1a237e;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 30px;
+      background-color: #1a237e;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #3949ab;
+    }
+
+    .spinner {
+      margin: 15px auto;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #1a237e;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="sme-logo.png" alt="Logotipo do SME" class="logo" />
+    <h1>Taxas de Emolumentos</h1>
+
+    <div class="taxa">
+      <input type="radio" name="taxa" id="taxa1" />
+      <label for="taxa1">Normal: 30.500 AKZ - 45 dias</label>
+    </div>
+
+    <div class="taxa">
+      <input type="radio" name="taxa" id="taxa2" />
+      <label for="taxa2">Urgente: 45.000 AKZ - 15 dias</label>
+    </div>
+
+    <div class="taxa">
+      <input type="radio" name="taxa" id="taxa3" />
+      <label for="taxa3">Personalizado: 70.000 AKZ - 24 horas</label>
+    </div>
+
+    <div class="taxa">
+      <input type="radio" name="taxa" id="taxa4" />
+      <label for="taxa4">Executivo: 100.000 AKZ - 2 horas</label>
+    </div>
+
+    <div class="spinner" id="spinner"></div>
+    <button onclick="confirmarTaxa()">Confirmar Taxa</button>
+  </div>
+
+  <script>
+    function confirmarTaxa() {
+      const spinner = document.getElementById('spinner');
+      spinner.style.display = 'block';
+      setTimeout(() => {
+        window.location.href = 'pagamento.html';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

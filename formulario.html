@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário de Agendamento</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 60px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #024b6b;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #024b6b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #036c9e;
+    }
+    .spinner {
+      display: none;
+      margin: 20px auto;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #024b6b;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Formulário de Agendamento</h2>
+  <form id="formularioAgendamento">
+    <div class="form-group">
+      <label for="provincia">Província</label>
+      <select id="provincia" required>
+        <option value="">Selecione a Província</option>
+        <option value="Luanda">Luanda</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="municipio">Selecione o Local</label>
+      <select id="municipio" required>
+        <option value="">Posto do SME ou SIAC</option>
+        <option value="Edifício da Sonangol">Edifício da Sonangol</option>
+        <option value="Cazenga">Cazenga</option>
+        <option value="Viana Zona Económica Especial">Viana (Zona Económica Especial</option>
+        <option value="Luanda Sul">Luanda Sul</option>
+        <option value="Vila Alice Vila Clotilde">Vila Alice (Vila Clotilde)</option>
+        <option value="Maianga">Maianga</option>
+        <option value="Camama Shopping Popular">Camama (Shopping Popular</option>
+        <option value="Zango 8000">Zango 8000</option>
+        <option value="SIAC Talatona">SIAC Talatona</option>
+        <option value="SIAC Calawenda">SIAC Calawenda</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="orgao">Ôrgão de atendimento</label>
+      <select id="ôrgão" required>
+        <option value="">Selecione ôrgão</option>
+        <option value="Serviço de Migração e Estrangeiros">Serviço de Migração e Estrangeiros (SME)</option>
+        <option value="Serviço Integrado de Atendimento ao Cidadão">Serviço Integrado de Atendimento ao Cidadão (SIAC)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dataAgendamento">Data de Agendamento</label>
+      <input type="date" id="dataAgendamento" required />
+    </div>
+
+    <div class="form-group">
+      <label for="horaAgendamento">Hora de Agendamento</label>
+      <input type="time" id="horaAgendamento" required />
+    </div>
+
+    <button type="submit">Confirmar</button>
+    <div class="spinner" id="spinner"></div>
+  </form>
+</div>
+
+<script>
+  document.getElementById("formularioAgendamento").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const spinner = document.getElementById("spinner");
+    spinner.style.display = "block";
+
+    setTimeout(() => {
+      spinner.style.display = "none";
+      window.location.href = "taxas.html";
+    }, 2000);
+  });
+</script>
+
+</body>
+</html>
